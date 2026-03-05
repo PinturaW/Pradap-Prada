@@ -1,0 +1,13 @@
+import type { ReactNode } from "react";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+
+export default function SupportLayout({ children }: { children: ReactNode }) {
+  return (
+    <main className="min-h-screen bg-white">
+      <Navbar />
+      <div className="pt-[72px]">{children}</div>
+      <Footer />
+    </main>
+  );
+}

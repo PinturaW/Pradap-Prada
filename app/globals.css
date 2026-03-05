@@ -1,0 +1,499 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Branch";
+  src:
+    url("/fonts/Branch.otf") format("opentype"),
+    url("/fonts/Branch.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TH K2D July8";
+  src: url("/fonts/TH-K2D-July8.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TH K2D July8";
+  src: url("/fonts/TH-K2D-July8-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TH K2D July8";
+  src: url("/fonts/TH-K2D-July8-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TH K2D July8";
+  src: url("/fonts/TH-K2D-July8-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@layer base {
+  :root {
+    --font-branch: "Branch";
+    --font-thai: "TH K2D July8";
+    /* PRADAP PRADA Design System — RAVIPA-inspired */
+    --background: 0 0% 100%;           /* #FFFFFF */
+    --foreground: 0 0% 16%;            /* #2A2A2A */
+    --card: 60 17% 98%;                /* #FAFAF8 surface subtle */
+    --card-foreground: 0 0% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 16%;
+    --primary: 0 0% 16%;               /* #2A2A2A — button primary, dark text */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 60 17% 98%;           /* #FAFAF8 */
+    --secondary-foreground: 0 0% 16%;
+    --muted: 0 0% 96%;                 /* #F5F5F5 */
+    --muted-foreground: 0 0% 60%;      /* #9A9A9A */
+    --accent: 29 43% 59%;              /* #C4956A rose-gold */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 92%;                /* #EBEBEB */
+    --input: 0 0% 92%;
+    --ring: 29 43% 59%;                /* #C4956A */
+    --chart-1: 0 0% 16%;
+    --chart-2: 29 43% 59%;
+    --chart-3: 0 0% 60%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 1rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 16%;
+    --sidebar-primary: 0 0% 16%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 60 17% 98%;
+    --sidebar-accent-foreground: 0 0% 16%;
+    --sidebar-border: 0 0% 92%;
+    --sidebar-ring: 29 43% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Prevent Thai tone marks/diacritics from spacing out due to tracking utilities */
+:lang(th) {
+  letter-spacing: normal;
+}
+
+:lang(th) [class*="tracking-"] {
+  letter-spacing: normal !important;
+}
+
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.43, 0.13, 0.23, 0.96) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--card)) 50%, hsl(var(--muted)) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.animate-count-up {
+  animation: count-up 0.5s ease forwards;
+}
+
+/* Delay utilities for staggered animations */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Champagne gold gradient utility */
+.bg-champagne-gradient {
+  background: linear-gradient(135deg, #D4AF37, #F4E5C2);
+}
+
+.text-champagne-gradient {
+  background: linear-gradient(135deg, #D4AF37, #F4E5C2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Soft luxury shadow levels */
+.shadow-luxury-sm {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-luxury {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-luxury-lg {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo shimmer — static light sheen */
+.text-logo-shimmer {
+  background: linear-gradient(
+    105deg,
+    #6B7280 15%,
+    #866060 35%,
+    #C4CDD6 52%,
+    #6B7280 75%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Checkout animation keyframes */
+@keyframes gem-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 45px rgba(212, 175, 55, 0.6), 0 0 80px rgba(212, 175, 55, 0.15);
+  }
+}
+
+.animate-gem-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: gem-draw 1.8s ease-out forwards;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Quiz option icon float */
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-4px); }
+}
+
+.animate-icon-float {
+  animation: icon-float 2.6s ease-in-out infinite;
+}
+
+/* Home premium motion */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-hero-zoom {
+  animation: hero-zoom 14s ease-out forwards;
+}
+
+.animate-soft-float {
+  animation: soft-float 5.5s ease-in-out infinite;
+}
+
+@keyframes hero-gradient {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+    filter: saturate(1) brightness(0.95);
+  }
+  50% {
+    transform: scale(1.04) translate3d(0, -10px, 0);
+    filter: saturate(1.08) brightness(1);
+  }
+  100% {
+    transform: scale(1.08) translate3d(0, -20px, 0);
+    filter: saturate(1.12) brightness(1.02);
+  }
+}
+
+@keyframes hero-orb {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+@keyframes hero-sweep {
+  0% {
+    transform: translateX(-15vw) skewX(-10deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateX(165vw) skewX(-10deg);
+    opacity: 0;
+  }
+}
+
+.animate-hero-gradient {
+  animation: hero-gradient 12s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-hero-orb {
+  animation: hero-orb 6.5s ease-in-out infinite;
+}
+
+.animate-hero-sweep {
+  animation: hero-sweep 7.5s ease-in-out infinite;
+}
+
+.flower-carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.flower-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.home-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 620ms cubic-bezier(0.22, 1, 0.36, 1), transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.home-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-stagger {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1), transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-reveal.is-visible .home-stagger {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-zoom,
+  .animate-hero-gradient,
+  .animate-hero-orb,
+  .animate-hero-sweep,
+  .animate-soft-float,
+  .animate-fade-in-up,
+  .animate-fade-in {
+    animation: none !important;
+  }
+
+  .home-reveal,
+  .home-stagger {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Luxury price styling */
+.price-luxury {
+  font-family: var(--font-sans), "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #2A2A2A;
+}
+
+.price-luxury-gold {
+  font-family: var(--font-sans), "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #2A2A2A;
+}
+
+/* PRADAP PRADA utility classes */
+.step-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #9A9A9A;
+  text-transform: uppercase;
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 400;
+}
+
+.text-accent-rose {
+  color: #C4956A;
+}
+
+.border-accent-rose {
+  border-color: #C4956A;
+}
+
+/* Card option pattern: default → hover → selected */
+.card-option {
+  background: #ffffff;
+  border: 1px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card-option:hover {
+  border-color: #C4956A;
+}
+
+.card-option.selected {
+  border: 1.5px solid #C4956A;
+}
+
+/* Active tab pill (shop by category) */
+.tab-pill-active {
+  background-color: #EDE8E1;
+  color: #2A2A2A;
+  border-radius: 9999px;
+  padding: 6px 18px;
+  font-weight: 400;
+}
+
+.tab-pill-inactive {
+  color: #9A9A9A;
+  border-radius: 9999px;
+  padding: 6px 18px;
+}
+
+/* Hairline divider */
+.hairline {
+  border-top: 1px solid #EBEBEB;
+}
+
+/* Cormorant italic heading utility */
+.heading-serif-italic {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  color: #9A9A9A;
+}
+
+/* CTA pill button styles */
+.btn-primary {
+  background: #2A2A2A;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  letter-spacing: 0.1em;
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 400;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-outline {
+  background: #ffffff;
+  color: #2A2A2A;
+  border: 1px solid #2A2A2A;
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 400;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+  background: #2A2A2A;
+  color: #ffffff;
+}

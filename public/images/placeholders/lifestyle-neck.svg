@@ -1,0 +1,19 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Necklace preview on model">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f5f3ef" />
+      <stop offset="100%" stop-color="#e8e2d8" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)" />
+  <g transform="translate(120 120)">
+    <path d="M40 120 C120 40, 280 0, 400 0 C520 0, 680 40, 760 120" stroke="#a16207" stroke-width="10" fill="none" />
+    <path d="M60 140 C180 80, 300 60, 400 60 C500 60, 620 80, 740 140" stroke="#eab308" stroke-width="6" fill="none" opacity="0.7" />
+    <circle cx="400" cy="210" r="38" fill="#b91c1c" stroke="#fff" stroke-width="6" />
+    <circle cx="400" cy="210" r="18" fill="#fee2e2" opacity="0.6" />
+  </g>
+  <g fill="#7c2d12" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+    <text x="400" y="860" font-size="28" letter-spacing="1.5">Necklace Preview</text>
+    <text x="400" y="900" font-size="16" opacity="0.7">On model (placeholder)</text>
+  </g>
+</svg>

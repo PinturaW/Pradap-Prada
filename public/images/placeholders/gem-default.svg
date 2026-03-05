@@ -1,0 +1,26 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gemstone preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="55%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.35" r="0.6">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55" />
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)" />
+  <rect width="800" height="1000" fill="url(#glow)" />
+  <g transform="translate(120 160)">
+    <polygon points="280,0 520,140 620,390 400,650 180,390" fill="#b91c1c" fill-opacity="0.2" />
+    <polygon points="280,0 520,140 620,390 400,650 180,390" stroke="#fca5a5" stroke-opacity="0.6" stroke-width="6" fill="none" />
+    <polygon points="280,0 400,650 520,140" fill="#ffffff" fill-opacity="0.08" />
+    <polygon points="280,0 400,650 180,390" fill="#ffffff" fill-opacity="0.06" />
+    <polygon points="520,140 620,390 400,650" fill="#ffffff" fill-opacity="0.05" />
+  </g>
+  <g fill="#e5e7eb" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+    <text x="400" y="865" font-size="30" letter-spacing="2">Ploy Preview</text>
+    <text x="400" y="905" font-size="18" opacity="0.7">Gemstone Placeholder</text>
+  </g>
+</svg>

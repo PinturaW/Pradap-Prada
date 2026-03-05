@@ -1,0 +1,24 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Jewelry preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="50%" stop-color="#fde68a" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <radialGradient id="shine" cx="0.3" cy="0.2" r="0.6">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)" />
+  <rect width="800" height="600" fill="url(#shine)" />
+  <g transform="translate(140 80)">
+    <ellipse cx="260" cy="220" rx="200" ry="160" fill="#fff3" />
+    <ellipse cx="260" cy="220" rx="170" ry="130" fill="none" stroke="#7c2d12" stroke-width="18" />
+    <circle cx="260" cy="85" r="36" fill="#b91c1c" stroke="#fff" stroke-width="6" />
+  </g>
+  <g fill="#7c2d12" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+    <text x="400" y="520" font-size="28" letter-spacing="1.5">Jewelry Preview</text>
+    <text x="400" y="555" font-size="16" opacity="0.75">Placeholder Image</text>
+  </g>
+</svg>
